@@ -10,6 +10,19 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
+    maven { url = "https://maven.createmod.net" }
 }
 
 base {
@@ -116,6 +129,9 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.52")
+    implementation "maven.modrinth:create:1.21.1-6.0.4"
+    runtimeOnly "maven.modrinth:createaddition:neoforge-1.21.1-1.4.2"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -1,7 +1,9 @@
 package me.ajh123.create_distribution;
 
 import com.mojang.logging.LogUtils;
+import me.ajh123.create_distribution.foundation.ModBlocks;
 import me.ajh123.create_distribution.foundation.ModRegistry;
+import me.ajh123.create_distribution.foundation.content.meter.ElectricalEnergyMeterBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
@@ -14,6 +16,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
@@ -34,6 +38,8 @@ public class CreateDistribution {
 
         ModRegistry.init(modEventBus);
 
+        modEventBus.addListener(this::registerCapabilities);
+
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (CreateDistribution) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -52,6 +58,14 @@ public class CreateDistribution {
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+    }
+
+    private void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                ModBlocks.ENERGY_METER_BLOCK_ENTITY.get(),
+                ElectricalEnergyMeterBlockEntity::getEnergyStorage
+        );
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

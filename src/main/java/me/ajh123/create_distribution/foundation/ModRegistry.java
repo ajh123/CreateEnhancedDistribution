@@ -30,7 +30,7 @@ public class ModRegistry {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MOD_CREATIVE_TAB = CREATIVE_MODE_TABS.register("main", () ->
             CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.create_distribution"))
-                    .withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> ModItems.ENERGY_METER_ITEM.get().getDefaultInstance())
+                    .withTabsBefore(CreativeModeTabs.SPAWN_EGGS).icon(() -> ModItems.ENERGY_METER_ITEM.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
         var entries = ITEMS.getEntries();
         for (var entry : entries) {

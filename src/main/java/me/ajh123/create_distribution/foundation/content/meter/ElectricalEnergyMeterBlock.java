@@ -1,20 +1,22 @@
 package me.ajh123.create_distribution.foundation.content.meter;
 
-import net.minecraft.core.BlockPos;
+import com.simibubi.create.foundation.block.IBE;
+import me.ajh123.create_distribution.foundation.ModBlocks;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 
-public class ElectricalEnergyMeterBlock extends Block implements EntityBlock {
+public class ElectricalEnergyMeterBlock extends Block implements IBE<ElectricalEnergyMeterBlockEntity> {
     public ElectricalEnergyMeterBlock(Properties properties) {
         super(properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
-        return new ElectricalEnergyMeterBlockEntity(blockPos, blockState);
+    public Class<ElectricalEnergyMeterBlockEntity> getBlockEntityClass() {
+        return ElectricalEnergyMeterBlockEntity.class;
+    }
+
+    @Override
+    public BlockEntityType<? extends ElectricalEnergyMeterBlockEntity> getBlockEntityType() {
+        return ModBlocks.ENERGY_METER_BLOCK_ENTITY.get();
     }
 }
