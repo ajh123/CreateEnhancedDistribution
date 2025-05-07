@@ -2,15 +2,20 @@ package me.ajh123.create_distribution.foundation.content.meter;
 
 import com.mojang.serialization.MapCodec;
 import com.simibubi.create.foundation.block.IBE;
+import me.ajh123.create_distribution.ModShapes;
 import me.ajh123.create_distribution.foundation.ModBlocks;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
 public class ElectricalEnergyMeterBlock extends HorizontalDirectionalBlock implements IBE<ElectricalEnergyMeterBlockEntity> {
@@ -49,5 +54,10 @@ public class ElectricalEnergyMeterBlock extends HorizontalDirectionalBlock imple
     @Override
     public BlockEntityType<? extends ElectricalEnergyMeterBlockEntity> getBlockEntityType() {
         return ModBlocks.ENERGY_METER_BLOCK_ENTITY.get();
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return ModShapes.ENERGY_METER.get(state.getValue(FACING));
     }
 }

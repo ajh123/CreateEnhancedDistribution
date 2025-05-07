@@ -97,4 +97,8 @@ public class ElectricalEnergyMeterBlockEntity extends SmartBlockEntity implement
             return null;
         }
     }
+
+    public int getThroughput() {
+        return this.throughputLastTick;
+    }
 }
