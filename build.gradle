@@ -23,6 +23,12 @@ repositories {
     }
     maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
     maven { url = "https://maven.createmod.net" }
+    maven {
+        url "https://maven.squiddev.cc"
+        content {
+            includeGroup("cc.tweaked")
+        }
+    }
 }
 
 base {
@@ -134,6 +140,8 @@ dependencies {
     implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.52")
     implementation "maven.modrinth:create:1.21.1-6.0.4"
     runtimeOnly "maven.modrinth:createaddition:neoforge-1.21.1-1.4.2"
+    implementation "cc.tweaked:cc-tweaked-1.21.1-forge-api:1.115.1"
+    implementation "cc.tweaked:cc-tweaked-1.21.1-forge:1.115.1"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

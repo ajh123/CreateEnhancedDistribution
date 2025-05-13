@@ -101,4 +101,8 @@ public class ElectricalEnergyMeterBlockEntity extends SmartBlockEntity implement
     public int getThroughput() {
         return this.throughputLastTick;
     }
+
+    public long getTotalTransferred() {
+        return totalTransferred;
+    }
 }

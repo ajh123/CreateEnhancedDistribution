@@ -1,6 +1,7 @@
 package me.ajh123.create_distribution;
 
 import com.mojang.logging.LogUtils;
+import me.ajh123.create_distribution.compat.computercraft.Peripherals;
 import me.ajh123.create_distribution.foundation.ModBlocks;
 import me.ajh123.create_distribution.foundation.ModRegistry;
 import me.ajh123.create_distribution.foundation.content.meter.ElectricalEnergyMeterBlockEntity;
@@ -69,6 +70,7 @@ public class CreateDistribution {
                 ModBlocks.ENERGY_METER_BLOCK_ENTITY.get(),
                 ElectricalEnergyMeterBlockEntity::getEnergyStorage
         );
+        Peripherals.registerPeripheralCapabilities(event);
     }
 
     private void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
