@@ -5,7 +5,7 @@ import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
 import com.simibubi.create.content.logistics.stockTicker.StockTickerBlockEntity;
 import dan200.computercraft.api.peripheral.PeripheralCapability;
 import me.ajh123.create_distribution.foundation.ModBlocks;
-import me.ajh123.create_distribution.foundation.content.meter.ElectricalEnergyMeterBlockEntity;
+import me.ajh123.create_distribution.content.meter.ElectricalEnergyMeterBlockEntity;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
 public class Peripherals {

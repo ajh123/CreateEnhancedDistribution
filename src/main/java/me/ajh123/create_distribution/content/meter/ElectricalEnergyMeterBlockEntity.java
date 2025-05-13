@@ -1,4 +1,4 @@
-package me.ajh123.create_distribution.foundation.content.meter;
+package me.ajh123.create_distribution.content.meter;
 
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;

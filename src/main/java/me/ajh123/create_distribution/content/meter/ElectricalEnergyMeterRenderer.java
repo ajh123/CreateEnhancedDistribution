@@ -1,4 +1,4 @@
-package me.ajh123.create_distribution.foundation.content.meter;
+package me.ajh123.create_distribution.content.meter;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

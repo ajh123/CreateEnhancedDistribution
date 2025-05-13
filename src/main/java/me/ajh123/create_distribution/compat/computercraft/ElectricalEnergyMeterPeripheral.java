@@ -2,7 +2,7 @@ package me.ajh123.create_distribution.compat.computercraft;
 
 import dan200.computercraft.api.lua.LuaFunction;
 import dan200.computercraft.api.peripheral.IPeripheral;
-import me.ajh123.create_distribution.foundation.content.meter.ElectricalEnergyMeterBlockEntity;
+import me.ajh123.create_distribution.content.meter.ElectricalEnergyMeterBlockEntity;
 import org.jspecify.annotations.Nullable;
 
 public class ElectricalEnergyMeterPeripheral implements IPeripheral {
