@@ -1,5 +1,7 @@
 {
   "itemGroup.create_distribution": "Create: Enhanced Distribution",
   "block.create_distribution.electrical_energy_meter": "Electrical Energy Meter",
-  "item.create_distribution.electrical_energy_meter": "Electrical Energy Meter"
+  "item.create_distribution.electrical_energy_meter": "Electrical Energy Meter",
+  "block.create_distribution.package_signer": "Package Signer",
+  "item.create_distribution.package_signer": "Package Signer"
 }

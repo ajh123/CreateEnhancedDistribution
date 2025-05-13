@@ -2,6 +2,8 @@ package me.ajh123.create_distribution.foundation;
 
 import me.ajh123.create_distribution.content.meter.ElectricalEnergyMeterBlock;
 import me.ajh123.create_distribution.content.meter.ElectricalEnergyMeterBlockEntity;
+import me.ajh123.create_distribution.content.package_signer.PackageSignerBlock;
+import me.ajh123.create_distribution.content.package_signer.PackageSignerBlockEntity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -35,6 +37,31 @@ public class ModBlocks {
             // Build using null; vanilla does some datafixer shenanigans with the parameter that we don't need.
             .build(null)
     );
+
+    // Creates a new Block with the id "create_distribution:package_signer", combining the namespace and path
+    public static final DeferredBlock<PackageSignerBlock> PACKAGE_SIGNER_BLOCK = ModRegistry.BLOCKS.register(
+            "package_signer",
+            registryName -> new PackageSignerBlock(BlockBehaviour.Properties.of()
+                    .destroyTime(2.0f)
+                    .explosionResistance(10.0f)
+                    .sound(SoundType.METAL)
+                    .mapColor(MapColor.STONE)
+            )
+    );
+
+    public static final Supplier<BlockEntityType<PackageSignerBlockEntity>> PACKAGE_SIGNER_BLOCK_ENTITY =
+            ModRegistry.BLOCKS_ENTITIES.register(
+                    "package_signer",
+                    () -> BlockEntityType.Builder.of(
+                                    // The supplier to use for constructing the block entity instances.
+                                    PackageSignerBlockEntity::new,
+                                    // A vararg of blocks that can have this block entity.
+                                    // This assumes the existence of the referenced blocks as DeferredBlock<Block>s.
+                                    PACKAGE_SIGNER_BLOCK.get()
+                            )
+                            // Build using null; vanilla does some datafixer shenanigans with the parameter that we don't need.
+                            .build(null)
+            );
 
     public static void init() {
         // static initialization

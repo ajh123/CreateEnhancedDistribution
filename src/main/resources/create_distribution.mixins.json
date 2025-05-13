@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "create_distribution.refmap.json",
   "mixins": [
+    "PackageItemMixin"
   ],
   "client": [
   ],
