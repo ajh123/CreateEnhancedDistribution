@@ -1,6 +1,8 @@
 package me.ajh123.create_distribution.compat.computercraft;
 
-
+import com.simibubi.create.AllBlockEntityTypes;
+import com.simibubi.create.content.logistics.packager.PackagerBlockEntity;
+import com.simibubi.create.content.logistics.stockTicker.StockTickerBlockEntity;
 import dan200.computercraft.api.peripheral.PeripheralCapability;
 import me.ajh123.create_distribution.foundation.ModBlocks;
 import me.ajh123.create_distribution.foundation.content.meter.ElectricalEnergyMeterBlockEntity;
@@ -13,6 +15,18 @@ public class Peripherals {
                 ModBlocks.ENERGY_METER_BLOCK_ENTITY.get(),
                 (be, dir) -> createElectricalEnergyMeterPeripheral(be)
         );
+
+        event.registerBlockEntity(
+                PeripheralCapability.get(),
+                AllBlockEntityTypes.STOCK_TICKER.get(),
+                (be, dir) -> createStockTickerPeripheral(be)
+        );
+
+        event.registerBlockEntity(
+                PeripheralCapability.get(),
+                AllBlockEntityTypes.PACKAGER.get(),
+                (be, dir) -> createPackagerPeripheral(be)
+        );
     }
 
     public static ElectricalEnergyMeterPeripheral createElectricalEnergyMeterPeripheral(
@@ -20,6 +34,24 @@ public class Peripherals {
     ) {
         return new ElectricalEnergyMeterPeripheral(
                 "electrical_energy_meter",
+                blockEntity
+        );
+    }
+
+    public static StockTickerPeripheral createStockTickerPeripheral(
+            StockTickerBlockEntity blockEntity
+    ) {
+        return new StockTickerPeripheral(
+                "Create_StockTicker",
+                blockEntity
+        );
+    }
+
+    public static PackagerPeripheral createPackagerPeripheral(
+            PackagerBlockEntity blockEntity
+    ) {
+        return new PackagerPeripheral(
+                "Create_Packager",
                 blockEntity
         );
     }
